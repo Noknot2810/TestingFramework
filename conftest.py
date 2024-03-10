@@ -15,6 +15,7 @@ class GUITestClient:
                 self.run_chrome_driver()
             case Browser.Firefox:
                 self.run_firefox_driver()
+        self.driver.maximize_window()
 
     def run_chrome_driver(self):
         service = Service(executable_path=ChromeDriverManager().install())

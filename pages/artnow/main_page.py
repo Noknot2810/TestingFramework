@@ -1,6 +1,5 @@
 from models.base import WebPage
-from models.elements import WebElement
-from models.elements import ManyWebElements
+from models.elements import ManyWebElements, WebElement
 from pages.artnow.urls import *
 
 
@@ -14,6 +13,13 @@ class MainPage(WebPage):
 
     # Search button
     search_run_button = WebElement(xpath='//button[@type="submit"]')
+
+    #main_menu = WebElement(xpath='//div[contains(@class, "main_menu")]/ul[2]/li[@data-show="gids"]')
+    #
+    sections_expand_button = WebElement(xpath='//div[contains(@class, "main_menu")]/ul[2]/li[@data-show="gids"]')
+
+    #
+    sections_refs = ManyWebElements(xpath='//div[contains(@class, "main_menu")]/ul[2]/li')
 
     # Titles of the products in search results
     #products_titles = ManyWebElements(xpath='//a[contains(@href, "/product-") and @title!=""]')

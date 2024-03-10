@@ -5,3 +5,4 @@ JUVELIRNYE_IZDELIJA_URL = "https://artnow.ru/juvelirnye-izdelija-ruchnoj-raboty.
 SEARCH_PAGE_URL = "https://artnow.ru/ru/searchpage.html"
 FAVORITES_URL = "https://artnow.ru/ru/favorites.html"
 BASKET_URL = "https://artnow.ru/index.html"
+GALLERY_URL = "https://artnow.ru/ru/gallery/"
