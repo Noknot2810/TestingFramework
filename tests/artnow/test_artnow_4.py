@@ -1,9 +1,14 @@
 import pytest
+import allure
 from pages.artnow.main_page import MainPage
 from pages.artnow.search_page import SearchPage
-from tdata.data_artnow import DATA, Url
+from tdata.data_artnow import DATA
 
 
+#@allure.feature('Search field')
+#@allure.story('First product in search response')
+#with allure.step("Test 4"):
+@allure.step("Test 4")
 @pytest.mark.skipif(not DATA.use_tests[4]
                     if DATA.use_tests.get(4) is not None
                     else True,

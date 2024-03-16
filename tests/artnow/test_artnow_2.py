@@ -1,12 +1,14 @@
 import pytest
+import allure
 from pages.artnow.main_page import MainPage
 from pages.artnow.embroidered_paintings_page import EmbroideredPaintingsPage
 from pages.artnow.gallery_page import GalleryPage
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from tdata.data_artnow import DATA, Url
+from tdata.data_artnow import DATA
 
 
+@allure.step("Test 2")
 @pytest.mark.skipif(not DATA.use_tests[2]
                     if DATA.use_tests.get(2) is not None
                     else True,

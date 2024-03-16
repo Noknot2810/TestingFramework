@@ -13,3 +13,5 @@ Allure for pytest official: https://allurereport.org/docs/pytest/
 Pytest advanced: https://habr.com/ru/articles/269759/
 
 Pytest documentation: https://pytest.org/en/latest/reference/reference.html#id147
+
+https://github.com/jkaluzka/pytest-exception-interact/tree/main

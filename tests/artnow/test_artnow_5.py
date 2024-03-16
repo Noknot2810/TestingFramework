@@ -1,10 +1,12 @@
 import pytest
+import allure
 from pages.artnow.main_page import MainPage
 from pages.artnow.jeweller_art_page import JewellerArtPage
 from pages.artnow.shopping_cart_page import ShoppingCartPage
-from tdata.data_artnow import DATA, Url
+from tdata.data_artnow import DATA
 
 
+@allure.step("Test 5")
 @pytest.mark.skipif(not DATA.use_tests[5]
                     if DATA.use_tests.get(5) is not None
                     else True,

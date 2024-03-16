@@ -1,10 +1,12 @@
 import pytest
+import allure
 from pages.artnow.main_page import MainPage
 from pages.artnow.batic_page import BaticPage
 from pages.artnow.favorites_page import FavoritesPage
-from tdata.data_artnow import DATA, Url
+from tdata.data_artnow import DATA
 
 
+@allure.step("Test 3")
 @pytest.mark.skipif(not DATA.use_tests[3]
                     if DATA.use_tests.get(3) is not None
                     else True,
