@@ -30,8 +30,8 @@ class GUITestClient:
     def stop_driver(self):
         self.driver.quit()
 
-# TODO: change scope maybe?
-@pytest.fixture(scope="session")
+# TODO: change scope maybe (function, class, module, package, session)?
+@pytest.fixture(scope="function")
 def driver():
     client = GUITestClient()
     yield client.driver

@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-# -*- encoding=utf8 -*-
+# Authored by Timur Nurlygayanov and Vladimir Gorbovskiy
+# Github: https://github.com/TimurNurlygayanov/ui-tests-example
 
 import time
 from termcolor import colored
