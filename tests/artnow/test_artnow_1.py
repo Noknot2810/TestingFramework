@@ -1,8 +1,8 @@
 import pytest
 import allure
 from pages.artnow.main_page import MainPage
-from pages.artnow.embroidered_paintings_page import EmbroideredPaintingsPage
 from pages.artnow.gallery_page import GalleryPage
+from pages.artnow.utils import get_section_page_class
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from tdata.data_artnow import DATA
@@ -73,9 +73,10 @@ def test_artnow_1(driver):
             f"Section with name {var["section"]} wasn't found"
 
     with allure.step("Check if there is the 'section' page on the screen"):
-        assert EmbroideredPaintingsPage.is_current_page(page.get_current_url()), \
+        page_class = get_section_page_class(var["section"])
+        assert page_class.is_current_page(page.get_current_url()), \
             f"There isn't the {var["section"]} page"
-        page = EmbroideredPaintingsPage(driver, True)
+        page = page_class(driver, True)
 
     with allure.step("Check if there is a need to expand all genres"):
         if page.genres_expand_button.is_visible() is False:

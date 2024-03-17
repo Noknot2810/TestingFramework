@@ -1,8 +1,8 @@
 import pytest
 import allure
 from pages.artnow.main_page import MainPage
-from pages.artnow.jeweller_art_page import JewellerArtPage
 from pages.artnow.shopping_cart_page import ShoppingCartPage
+from pages.artnow.utils import get_section_page_class
 from tdata.data_artnow import DATA
 
 
@@ -61,9 +61,10 @@ def test_artnow_5(driver):
             f"Section with name {var["section"]} wasn't found"
 
     with allure.step("Check if there is the 'section' page on the screen"):
-        assert JewellerArtPage.is_current_page(page.get_current_url()), \
+        page_class = get_section_page_class(var["section"])
+        assert page_class.is_current_page(page.get_current_url()), \
             f"There isn't the {var["section"]} page"
-        page = JewellerArtPage(driver, True)
+        page = page_class(driver, True)
 
     with allure.step("Get the first product"):
         assert page.products_titles.count() > 0, \
