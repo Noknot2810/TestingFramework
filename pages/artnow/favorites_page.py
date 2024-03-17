@@ -6,12 +6,14 @@ from tdata.data_artnow import DATA, Url
 # Page object: Favorites page
 class FavoritesPage(WebPage):
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.Favorites) is not None
+        assert DATA.urls.get(Url.Favorites) is not None, \
+            "Url for favorites page wasn't specified"
         super().__init__(web_driver, DATA.urls[Url.Favorites], without_get)
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.Favorites) is not None
+        assert DATA.urls.get(Url.Favorites) is not None, \
+            "Url for favorites page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.Favorites])
 
     # Titles of products on the page

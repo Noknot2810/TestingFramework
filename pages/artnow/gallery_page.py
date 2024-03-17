@@ -6,12 +6,14 @@ from tdata.data_artnow import DATA, Url
 # Page object: Gallery page
 class GalleryPage(WebPage):
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.Gallery) is not None
+        assert DATA.urls.get(Url.Gallery) is not None, \
+            "Url for gallery page wasn't specified"
         super().__init__(web_driver, DATA.urls[Url.Gallery], without_get)
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.Gallery) is not None
+        assert DATA.urls.get(Url.Gallery) is not None, \
+            "Url for gallery page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.Gallery])
 
     # Titles of products on the page

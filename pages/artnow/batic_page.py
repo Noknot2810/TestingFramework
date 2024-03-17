@@ -6,12 +6,14 @@ from tdata.data_artnow import DATA, Url
 # Page object: Batic page
 class BaticPage(WebPage):
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.Batic) is not None
+        assert DATA.urls.get(Url.Batic) is not None, \
+            "Url for batic page wasn't specified"
         super().__init__(web_driver, DATA.urls[Url.Batic], without_get)
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.Batic) is not None
+        assert DATA.urls.get(Url.Batic) is not None, \
+            "Url for batic page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.Batic])
 
     # Button to go to favorites page

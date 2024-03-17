@@ -7,12 +7,14 @@ from tdata.data_artnow import DATA, Url
 class MainPage(WebPage):
 
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.MainPage) is not None
+        assert DATA.urls.get(Url.MainPage) is not None, \
+            "Url for main page wasn't specified"
         super().__init__(web_driver, DATA.urls[Url.MainPage], without_get)
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.MainPage) is not None
+        assert DATA.urls.get(Url.MainPage) is not None, \
+            "Url for main page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.MainPage])
 
     # Search field

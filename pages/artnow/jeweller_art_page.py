@@ -6,12 +6,14 @@ from tdata.data_artnow import DATA, Url
 # Page object: Jeweller art page
 class JewellerArtPage(WebPage):
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.JewellerArt) is not None
+        assert DATA.urls.get(Url.JewellerArt) is not None, \
+            "Url for jeweller art page wasn't specified"
         super().__init__(web_driver, DATA.urls[Url.JewellerArt], without_get)
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.JewellerArt) is not None
+        assert DATA.urls.get(Url.JewellerArt) is not None, \
+            "Url for jeweller art page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.JewellerArt])
 
     # Button to go to shopping cart page

@@ -7,7 +7,7 @@ import selenium.webdriver.firefox.webdriver as firefox
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from settings import *
-import os
+from time import *
 from pathlib import Path
 
 
@@ -29,15 +29,17 @@ def pytest_exception_interact(node, call, report):
 
     scr_name = node.nodeid.split("::")[-1]
     if SAVE_ERROR_SCREENSHOTS:
+        now = strftime("%Y-%m-%d-%H_%M_%S", localtime(time()))
         scr_path = "./error_screenshots"
         Path(scr_path).mkdir(parents=True, exist_ok=True)
-        web_driver.save_screenshot(f"{scr_path}/{scr_name}.png")
+        web_driver.save_screenshot(f"{scr_path}/{scr_name}-{now}.png")
 
     allure.attach(
         name=scr_name,
         body=web_driver.get_screenshot_as_png(),
         attachment_type=allure.attachment_type.PNG)
     yield
+
 
 class GUITestClient:
     def __init__(self):
@@ -66,6 +68,9 @@ class GUITestClient:
 # TODO: change scope maybe (function, class, module, package, session)?
 @pytest.fixture(scope="function")
 def driver():
-    client = GUITestClient()
+    with allure.step(
+            f"Prepare the web driver for {BROWSER_VAR.name}"):
+        client = GUITestClient()
     yield client.driver
-    client.stop_driver()
+    with allure.step(f"Stop the web driver for {BROWSER_VAR.name}"):
+        client.stop_driver()

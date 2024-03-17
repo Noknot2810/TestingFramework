@@ -6,7 +6,8 @@ from tdata.data_artnow import DATA, Url
 # Page object: Art embroidered paintings page
 class EmbroideredPaintingsPage(WebPage):
     def __init__(self, web_driver, without_get=False):
-        assert DATA.urls.get(Url.EmbroideredPaintings) is not None
+        assert DATA.urls.get(Url.EmbroideredPaintings) is not None, \
+            "Url for embroidered paintings page wasn't specified"
         super().__init__(
             web_driver,
             DATA.urls[Url.EmbroideredPaintings],
@@ -14,7 +15,8 @@ class EmbroideredPaintingsPage(WebPage):
 
     @staticmethod
     def is_current_page(cur_url: str):
-        assert DATA.urls.get(Url.EmbroideredPaintings) is not None
+        assert DATA.urls.get(Url.EmbroideredPaintings) is not None, \
+            "Url for embroidered paintings page wasn't specified"
         return cur_url.startswith(DATA.urls[Url.EmbroideredPaintings])
 
     # Button to show/hide all genres

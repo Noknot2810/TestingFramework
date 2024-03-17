@@ -9,9 +9,8 @@ class Browser(Enum):
 
 # Browser that must be used in tests
 BROWSER_VAR = Browser.Chrome
-# TODO: replace with 2,3 or 4
 # Count of threads that must be used in tests
-WORKERS_CNT = 1
+WORKERS_CNT = 2
 # Flag indicating that the generated allure report must be opened immediately
 # after its generation
 OPEN_REPORT_IMMEDIATELY = True
